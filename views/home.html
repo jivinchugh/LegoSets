@@ -1,0 +1,99 @@
+<!--/******************************************************************************** 
+*  BTI325 – Assignment 02 
+*  
+*  I declare that this assignment is my own work in accordance with Seneca's 
+*  Academic Integrity Policy: 
+*  
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+*  
+*  Name: Jivin Chugh     Student ID: 156056210       Date: 13 October,2023 
+* 
+********************************************************************************/-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+
+    <title>Lego Collection</title>
+</head>
+
+<body>
+
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+            <a href="/" class="btn btn-ghost normal-case text-xl">Lego Collection</a>
+        </div>
+
+        <div class="navbar-center hidden sm:flex">
+            <ul class="menu menu-horizontal px-1">
+
+                <li><a href="/about">About</a></li>
+                <li>
+                    <details>
+                        <summary>Theme</summary>
+                        <ul class="p-2 bg-base-100">
+                            <li><a href="/lego/sets?theme=Hobby Sets">Hobby Sets</a></li>
+                            <li><a href="/lego/sets?theme=Bulk Bricks">Bulk Bricks</a></li>
+                            <li><a href="/lego/sets?theme=Creator Expert">Creator Expert</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="hero">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold">HOLA AMIGOS!</h1>
+                <p class="py-6">Here is a collection where you can find and learn about variety of lego sets!!</p>
+                <a href="/lego/sets" class="btn btn-primary">SHOW LIST OF LEGO SETS</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="grid grid-cols-3 gap-4">
+        <div class="card w-50 bg-base-100 shadow-xl">
+            <figure><img src="https://cdn.rebrickable.com/media/sets/10037-1.jpg" alt="Shoes" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">Breezeway Cafe</h2>
+                <p>Release date : 1990</p>
+                <div class="card-actions justify-end">
+                    <a href="/lego/sets/10037-1" class="btn btn-primary">LOOK!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card w-50 bg-base-100 shadow-xl">
+            <figure><img src="https://cdn.rebrickable.com/media/sets/10039-1.jpg" alt="Shoes" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">Black Falcon's Fortress</h2>
+                <p>Release date : 1986</p>
+                <div class="card-actions justify-end">
+                    <a href="/lego/sets/10039-1" class="btn btn-primary">LOOK!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card w-50 bg-base-100 shadow-xl">
+            <figure><img src="https://cdn.rebrickable.com/media/sets/10040-1.jpg" alt="Shoes" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">Black Seas Barracuda</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div class="card-actions justify-end">
+                    <a href="/lego/sets/10040-1" class="btn btn-primary">LOOK!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
