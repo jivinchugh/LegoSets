@@ -1,0 +1,85 @@
+<!--/******************************************************************************** 
+*  BTI325 – Assignment 02 
+*  
+*  I declare that this assignment is my own work in accordance with Seneca's 
+*  Academic Integrity Policy: 
+*  
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+*  
+*  Name: Jivin Chugh     Student ID: 156056210       Date: 13 October,2023 
+* 
+********************************************************************************/-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <!--<link rel="stylesheet" type="text/css" href="/public/css/new.css">-->
+    <title>Lego Collection</title>
+</head>
+
+<body>
+    <div class="container mx-auto"></div>
+    <%- include('partials/navbar', {page: '' }) %>
+
+
+
+
+        <div class="hero rounded-lg p-6 bg-base-200">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">
+                        <%=set.name%>
+                    </h1>
+                    <p class="py-6 text-2xl ">Description for : <%=set.name%>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <!--image-->
+            <div>
+                <img src="<%= set.img_url %>" alt="image">
+            </div>
+            <!--name-->
+            <li><b> Set Name:</b>
+                <%=set.name%>
+            </li>
+            <!--year-->
+            <li><b>Year Released:</b>
+                <%= set.year %>
+            </li>
+            <!--theme-->
+            <li><b>Theme:</b>
+                <%= set.theme %>
+            </li>
+            <!--parts-->
+            <li><b>Number of Parts:</b>
+                <%= set.num_parts %>
+            </li>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    fetch("https://quotable.io/random")
+                        .then(response => response.json()) //when kept response.render() PROCESSING stays
+                        .then(data => {
+                            const quoteElement = document.getElementById("quote");
+                            quoteElement.innerHTML = ` "${data.content}"<br> -  ${data.author}`;
+                        })
+                        .catch(error => {
+                            console.error("quote not fetched properly, try again!!", error);
+                        });
+                });
+            </script>
+            <p id="quote">PROCESSINNGGGGGGGGGGGGGGGGGGGGGGG!!</p>
+            <a href="#" onclick="history.back(); return false;" class="btn  mt-2 btn-xs">RETURNNNN!!</a>
+
+
+        </div>
+
+</body>

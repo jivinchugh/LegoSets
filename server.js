@@ -5,47 +5,51 @@
 *  Academic Integrity Policy: 
 *  
 *  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+  LINK ISSSSSSSSSS!! 
+  
 *  
-*  Name: Jivin Chugh     Student ID: 156056210       Date: 13 October,2023 
+*  Name: Jivin Chugh     Student ID: 156056210       Date: 3 November,2023 
 * 
 ********************************************************************************/
 const legoData = require("./modules/legoSets");
 const express = require("express");
 const path = require("path");
 const app = express();
+app.set('view engine', 'ejs');
 const HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.static("public"))
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/home.html"))
+    res.render("home");
 });
 
 app.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/about.html"))
+    res.render("about");
 });
 
 app.get("/lego/sets", (req, res) => {
     if (req.query.theme) {
         legoData.getSetsByTheme(req.query.theme)
-            .then((data) => res.status(200).json(data))
-            .catch((err) => res.status(404).sendFile(path.join(__dirname, "/views/404.html"))
+            .then((data) => res.status(200).render("sets",{sets:data}))
+            .catch((err) => res.status(404).render("404", {message: "I'm sorry, theme not found"})
             );
 
     }
-
-    legoData.getAllSets().then((data) => res.json(data))
+    else{
+    legoData.getAllSets().then((data) => res.render("sets",{sets:data}))
         .catch((err) =>
-            res.status(404).sendFile(path.join(__dirname, "/views/404.html"))
+            res.status(404).render("404")
         );
+    }
 });
 
 app.get("/lego/sets/:id", (req, res) => {
     legoData
         .getSetByNum(req.params.id)
-        .then((data) => res.json(data))
+        .then((data) => res.render("set", {set: data}))
         .catch((err) =>
-            res.status(404).sendFile(path.join(__dirname, "/views/404.html"))
+            res.status(404).render("404", {message: "I'm sorry, sets not found"})
         );
 });
 
@@ -56,9 +60,11 @@ app.get("/lego/sets/:id", (req, res) => {
       .then(sets => res.json(sets))
       .catch(error => {res.json(error)});
   });*/
+
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, "/views/404.html"));
+    res.status(404).render("404", {message: "I'm sorry, we're unable to find what you're looking for"})
 });
+
 /*
 // //legoData.initialize();
 app.get("/lego/sets", (req, res) => {

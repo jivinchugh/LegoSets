@@ -1,0 +1,71 @@
+<!--/******************************************************************************** 
+*  BTI325 – Assignment 02 
+*  
+*  I declare that this assignment is my own work in accordance with Seneca's 
+*  Academic Integrity Policy: 
+*  
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+*  
+*  Name: Jivin Chugh     Student ID: 156056210       Date: 13 October,2023 
+* 
+********************************************************************************/-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <!--<link rel="stylesheet" type="text/css" href="/public/css/new.css">-->
+    <title>Lego Collection</title>
+</head>
+
+<body>
+    <div class="container mx-auto"></div>
+    <%- include('partials/navbar', {page: '/lego/sets' }) %>
+
+        <div class="hero rounded-lg p-6 bg-base-200">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Collection</h1>
+                    <p class="py-6">Open any of the following collections by clicking at the button :
+                        <a href="/lego/sets?theme=Hobby Sets" class="btn btn-primary">Hobby Sets</a>
+                        <a href="/lego/sets?theme=Bulk Bricks" class="btn btn-primary">Bulk Bricks</a>
+                        <a href="/lego/sets?theme=Creator Expert" class="btn btn-primary">Creator Expert</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <tbody>
+            <% sets.forEach(function(set) { %>
+                <tr>
+                    <!--image-->
+                    <div>
+                        <td>
+                            <img src="<%= set.img_url %>" </td>
+                    </div>
+
+                    <!--name/theme button-->
+                    <td>
+                        <%= set.name %> | <a href="/lego/sets?theme=<%= set.theme %>" class="btn  mt-2 btn-xs">
+                                <%= set.theme %>
+                            </a>
+                    </td>
+
+                    <!--years-->
+                    <td><span>Year: </span>
+                        <%= set.year %> - <span>Parts:</span>
+                            <%= set.num_parts %></td>
+                    
+                    <!--details-->
+                    <th><a href="/lego/sets/<%= set.set_num %>" class="btn btn-xs">Details</a></th>
+                </tr>
+                <% }); %>
+
+
+        </tbody>
+
+</body>
