@@ -1,4 +1,16 @@
-
+/******************************************************************************** 
+*  BTI325 – Assignment 05 
+*  
+*  I declare that this assignment is my own work in accordance with Seneca's 
+*  Academic Integrity Policy: 
+*  
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+  LINK ISSSSSSSSSS!! 
+  https://weak-suit-duck.cyclic.app/
+*  
+*  Name: Jivin Chugh     Student ID: 156056210       Date: 21 November,2023 
+* 
+********************************************************************************/
 require('dotenv').config(); //enabless us to use process.env
 const Sequelize = require('sequelize');
 // set up sequelize to point to our postgres database
