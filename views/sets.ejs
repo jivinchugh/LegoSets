@@ -1,14 +1,4 @@
-<!--/******************************************************************************** 
-*  BTI325 – Assignment 02 
-*  
-*  I declare that this assignment is my own work in accordance with Seneca's 
-*  Academic Integrity Policy: 
-*  
-*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
-*  
-*  Name: Jivin Chugh     Student ID: 156056210       Date: 13 October,2023 
-* 
-********************************************************************************/-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,8 +40,8 @@
 
                     <!--name/theme button-->
                     <td>
-                        <%= set.name %> | <a href="/lego/sets?theme=<%= set.theme %>" class="btn  mt-2 btn-xs">
-                                <%= set.theme %>
+                        <%= set.name %> | <a href="/lego/sets?theme=<%= set.Theme.name %>" class="btn  mt-2 btn-xs">
+                                <%= set.Theme.name %>
                             </a>
                     </td>
 

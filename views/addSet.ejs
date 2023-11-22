@@ -1,0 +1,115 @@
+<!--/******************************************************************************** 
+*  BTI325 – Assignment 04 
+*  
+*  I declare that this assignment is my own work in accordance with Seneca's 
+*  Academic Integrity Policy: 
+*  
+*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html 
+  LINK ISSSSSSSSSS!! 
+  https://weak-suit-duck.cyclic.app/
+*  
+*  Name: Jivin Chugh     Student ID: 156056210       Date: 3 November,2023 
+* 
+********************************************************************************/**/-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <title>Lego Collection</title>
+</head>
+
+
+<body>
+    <%- include('partials/navbar', {page: '/lego/addSet' }) %>
+        <div class="isolate  px-6 py-24 sm:py-32 lg:px-8">
+            <div class="hero rounded-lg p-6 bg-base-200">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold">ADD SET</h1>
+                        <p class="py-6">You can add new set here</p>
+                    </div>
+                </div>
+            </div>
+
+            <form action="/lego/addSet" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+                <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold leading-6 text-gray-900">Name</label>
+                        <div class="mt-2.5">
+                            <input type="text" name="name" id="name" required
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="year" class="block text-sm font-semibold leading-6 text-gray-900">Year</label>
+                        <div class="mt-2.5">
+                            <input type="number" name="year" id="year" required
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="num_parts" class="block text-sm font-semibold leading-6 text-gray-900">Number of
+                            parts</label>
+                        <div class="mt-2.5">
+                            <input type="number" name="num_parts" id="num_parts" required
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="img_url" class="block text-sm font-semibold leading-6 text-gray-900">Image URL</label>
+                        <div class="mt-2.5">
+                            <input type="url" name="img_url" id="img_url" required
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="sm:col-span-2">
+                            <label for="theme_id"
+                                class="block text-sm font-semibold leading-6 text-gray-900">Theme</label>
+                            <select id="theme_id" name="theme_id" required
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+
+                                <% theme.forEach(theme=> { %>
+                                    <option value="<%= theme.id %>">
+                                        <%= theme.name %>
+                                    </option>
+                                    <% }) %>
+
+
+
+                            </select>
+                        </div>
+                        <BR>
+                        <div class="sm:col-span-2">
+                            <label for="set_num" class="block text-sm font-semibold leading-6 text-gray-900">Set
+                                Num</label>
+                            <input type="text" id="set_num" name="set_num" required
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="mt-10">
+                    <button type="submit"
+                        class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">ADD
+                        SET</button>
+                </div>
+
+            </form>
+        </div>
+
+</body>
+
+</html>
