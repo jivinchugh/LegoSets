@@ -27,9 +27,6 @@
     <div class="container mx-auto"></div>
     <%- include('partials/navbar', {page: '' }) %>
 
-
-
-
         <div class="hero rounded-lg p-6 bg-base-200">
             <div class="hero-content text-center">
                 <div class="max-w-md">
@@ -65,6 +62,13 @@
                 <%= set.num_parts %>
             </li>
 
+            <div class="card-actions justify-end">
+                <% if (session && session.user) { %>
+                    <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-success">Edit Set</a>
+                    <a href="/lego/deleteSet/<%= set.set_num %>" class="btn btn-success">Delete</a>
+                    <% } %>
+            </div>
+
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     fetch("https://quotable.io/random")
@@ -80,7 +84,7 @@
             </script>
             <p id="quote">PROCESSINNGGGGGGGGGGGGGGGGGGGGGGG!!</p>
             <a href="#" onclick="history.back(); return false;" class="btn  mt-2 btn-xs">RETURNNNN!!</a>
-            <a href="/lego/editSet/<%= set.set_num %>"  class="btn  mt-2 btn-xs">EDIT Set!!!!!</a>
+            <a href="/lego/editSet/<%= set.set_num %>" class="btn  mt-2 btn-xs">EDIT Set!!!!!</a>
 
         </div>
 
